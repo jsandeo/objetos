@@ -19,7 +19,7 @@ custom_js:
   {%- endif -%}
   {%- for photo in site.data.photos -%}
     {%- if photo.id_object == member.id -%}
-      <a href="{{ '/assets/images/photos/' | append: photo.filename | relative_url }}" data-id="{{ member.id }}"><img src="{{ '/assets/images/thumbnails/' | append: photo.filename | relative_url }}"></a>
+      <a class="zoom" href="{{ '/assets/images/photos/' | append: photo.filename | relative_url }}" data-id="{{ member.id }}"><img src="{{ '/assets/images/thumbnails/' | append: photo.filename | relative_url }}"></a>
     {%- endif -%}
   {%- endfor -%}
   </div>
@@ -29,7 +29,7 @@ custom_js:
 <script>
 $(document).ready(function() {
 	$('.popup-gallery').magnificPopup({
-		delegate: 'a',
+		delegate: 'a.zoom',
 		type: 'image',
 		tLoading: 'Loading image #%curr%...',
 		mainClass: 'mfp-img-mobile',
